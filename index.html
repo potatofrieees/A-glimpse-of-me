@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jolina Martin Facullo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #232f28;
+    --forest: #2c473c;
+    --forest-dark: #1c342a;
+    --sage: #82a075;
+    --paper: #f5f0e3;
+    --paper-dim: #ece2cb;
+    --gold: #bd8638;
+    --clay: #a24f3c;
+    --line: rgba(35, 47, 40, 0.15);
+  }
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html{
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar{
+    display: none;
+  }
+  body{
+    position: relative;
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 43px,
+      rgba(35, 47, 40, 0.05) 43px 44px
+    );
+    color: var(--ink);
+    font-family: "Nunito Sans", sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar{
+    display: none;
+  }
+  body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 56px;
+    width: 1px;
+    background: rgba(162, 79, 60, 0.35);
+    pointer-events: none;
+    z-index: 0;
+    display: none;
+  }
+  body::after{
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 26px;
+    width: 6px;
+    pointer-events: none;
+    z-index: 0;
+    display: none;
+    background-image: radial-gradient(
+      circle,
+      rgba(35, 47, 40, 0.16) 3px,
+      transparent 3.5px
+    );
+    background-size: 100% 96px;
+    background-repeat: repeat-y;
+    background-position: 0 40px;
+  }
+  @media (min-width: 1180px){
+    body::before,
+    body::after{
+      display: block;
+    }
+  }
+  h1,
+  h2,
+  h3{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  a{
+    color: inherit;
+  }
+  img{
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(18px, 5vw, 32px);
+    position: relative;
+    z-index: 1;
+  }
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--forest-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  nav .wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .brand{
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--paper);
+  }
+  .navlinks{
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .navlinks a{
+    text-decoration: none;
+    color: var(--paper);
+    opacity: 0.72;
+    transition: opacity 0.2s ease;
+  }
+  .navlinks a:hover{
+    opacity: 1;
+  }
+  .navlinks{
+    display: none;
+  }
+  @media (min-width: 720px){
+    .navlinks{
+      display: flex;
+    }
+  }
+  .nav-toggle{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-toggle span{
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--paper);
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+  @media (min-width: 720px){
+    .nav-toggle{
+      display: none;
+    }
+  }
+  .nav-toggle.open span:nth-child(1){
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2){
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3){
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .navlinks.mobile-open{
+    display: flex;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--forest-dark);
+    padding: 8px 0 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    z-index: 9;
+  }
+  .navlinks.mobile-open a{
+    display: block;
+    padding: 12px clamp(18px, 5vw, 32px);
+  }
+  .navlinks.mobile-open li{
+    width: 100%;
+  }
+  .hero{
+    padding: 64px 0 88px;
+  }
+  .hero .wrap{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 800px){
+    .hero .wrap{
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+  .hero-text{
+    flex: 1.2;
+  }
+  .eyebrow{
+    color: var(--clay);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .hero .loc{
+    margin-top: 14px;
+    font-size: 1.05rem;
+    color: var(--forest);
+    font-weight: 700;
+  }
+  .hero p.lede{
+    margin-top: 20px;
+    max-width: 52ch;
+    font-size: 1.08rem;
+  }
+  .hero-cta{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 26px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--clay);
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 2px;
+    transition: gap 0.25s ease;
+  }
+  .hero-cta:hover{
+    gap: 12px;
+  }
+  .hero-cta::after{
+    content: "↓";
+    transition: transform 0.25s ease;
+  }
+  .hero-cta:hover::after{
+    transform: translateY(3px);
+  }
+  .hero-photo{
+    position: relative;
+    flex: 1;
+    width: 100%;
+    max-width: min(300px, 70vw);
+    background: var(--paper);
+    padding: 10px 10px 26px;
+    border-radius: 4px;
+    box-shadow:
+      0 22px 44px -20px rgba(28, 52, 42, 0.5),
+      0 0 0 1px var(--line);
+    transform: rotate(-2deg);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hero-photo:hover{
+    transform: rotate(0deg) translateY(-4px);
+  }
+  .hero-photo::after{
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 35% 30%,
+      #e7bd72,
+      var(--gold) 62%,
+      #7c531f 100%
+    );
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.35);
+  }
+  .hero-photo-frame{
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .hero-photo img{
+    width: 100%;
+    height: 360px;
+    transition: transform 0.6s ease;
+  }
+  .hero-photo:hover img{
+    transform: scale(1.04);
+  }
+  .reveal{
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .reveal.visible{
+    opacity: 1;
+    transform: none;
+  }
+  .hero-text{
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.1s forwards;
+  }
+  .hero-photo{
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  @keyframes fadeUp{
+    from{
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to{
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal,
+    .hero-text,
+    .hero-photo{
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  section{
+    padding: clamp(56px, 9vw, 88px) 0;
+  }
+  section:nth-of-type(odd){
+    background: linear-gradient(
+      180deg,
+      rgba(130, 160, 117, 0.1),
+      rgba(130, 160, 117, 0.03)
+    );
+  }
+  .section-head{
+    max-width: 60ch;
+    margin-bottom: 36px;
+  }
+  .kicker{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--clay);
+    margin-bottom: 10px;
+  }
+  .kicker::before{
+    content: "";
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    display: inline-block;
+    flex: none;
+  }
+  .section-head h2{
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  }
+  .split{
+    display: grid;
+    gap: 36px;
+    align-items: center;
+  }
+  @media (min-width: 760px){
+    .split{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .split.reverse .media{
+    order: 2;
+  }
+  .media img{
+    border-radius: 16px;
+  }
+  .media.tall img{
+    height: 340px;
+  }
+  @media (max-width: 759px){
+    .media{
+      display: flex;
+      justify-content: center;
+    }
+    .media img{
+      width: 92%;
+    }
+  }
+  .people-grid{
+    display: grid;
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 680px){
+    .people-grid{
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .person{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .person:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px -18px rgba(32, 48, 31, 0.45);
+  }
+  section:nth-of-type(odd) .person{
+    background: var(--paper);
+  }
+  .person img{
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+  .person .obj-mother{
+    object-position: center 20%;
+  }
+  .person:hover img{
+    transform: scale(1.06);
+  }
+  .person .cap{
+    padding: 18px;
+  }
+  .person .cap h3{
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  .person .cap p{
+    font-size: 0.92rem;
+    opacity: 0.85;
+  }
+  .food-layout{
+    display: grid;
+    gap: 36px;
+    align-items: center;
+  }
+  @media (min-width: 760px){
+    .food-layout{
+      grid-template-columns: 1.1fr 1fr;
+    }
+  }
+  .food-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .food-list li{
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .food-list .tag{
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--clay);
+    font-size: 1.15rem;
+    min-width: 112px;
+  }
+  .carousel{
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #20301f14, #20301f0a);
+  }
+  .carousel-track{
+    display: flex;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .carousel-track img{
+    flex: 0 0 100%;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
+    cursor: zoom-in;
+    transition: opacity 0.3s ease;
+  }
+  .food-carousel img{
+    object-position: center 78%;
+  }
+  .car-btn{
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(32, 48, 31, 0.55);
+    color: var(--paper);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .car-btn:hover{
+    background: rgba(32, 48, 31, 0.8);
+  }
+  .car-prev{
+    left: 12px;
+  }
+  .car-next{
+    right: 12px;
+  }
+  .car-dots{
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .car-dots button{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(247, 243, 232, 0.55);
+    padding: 0;
+    cursor: pointer;
+  }
+  .car-dots button.active{
+    background: var(--paper);
+  }
+  #lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 20, 14, 0);
+    backdrop-filter: blur(0px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+    cursor: zoom-out;
+    transition:
+      background 0.4s ease,
+      backdrop-filter 0.4s ease;
+  }
+  #lightbox.open{
+    display: flex;
+    background: rgba(15, 20, 14, 0.88);
+    backdrop-filter: blur(6px);
+  }
+  #lightbox img{
+    max-width: min(92vw, 900px);
+    max-height: 88vh;
+    border-radius: 14px;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+    transform: scale(0.85) translateY(14px);
+    opacity: 0;
+    transition:
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.35s ease;
+  }
+  #lightbox.open img{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  #lightbox .lb-close{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--paper);
+    font-size: 1.6rem;
+    background: rgba(247, 243, 232, 0.12);
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  #lightbox.open .lb-close{
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+  }
+  #lightbox .lb-close:hover{
+    background: rgba(247, 243, 232, 0.25);
+    transform: scale(1.08);
+  }
+  section img,
+  .hero-photo img{
+    cursor: zoom-in;
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.4s ease;
+  }
+  section img:hover,
+  .hero-photo img:hover{
+    filter: brightness(1.04);
+  }
+  #img-hint{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px 8px 10px;
+    border-radius: 999px;
+    background: rgba(32, 48, 31, 0.85);
+    color: var(--paper);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+  #img-hint.show{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  #img-hint svg{
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .carousel-track,
+    #lightbox img,
+    #lightbox,
+    section img,
+    .hero-photo img,
+    #img-hint,
+    #lightbox .lb-close{
+      transition: none;
+    }
+  }
+  @media (hover: none){
+    #img-hint{
+      display: none;
+    }
+  }
+  .skills-grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 560px){
+    .skills-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 900px){
+    .skills-grid{
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .skill-card{
+    background: var(--forest);
+    color: var(--paper);
+    border-radius: 16px;
+    padding: 26px;
+    transition: transform 0.35s ease;
+    overflow: hidden;
+  }
+  .skill-card:hover{
+    transform: translateY(-6px);
+  }
+  .skill-card h3{
+    color: var(--paper);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  .skill-card p{
+    font-size: 0.92rem;
+    opacity: 0.9;
+  }
+  .skill-card.has-photo{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .skill-card.has-photo img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    transition: transform 0.5s ease;
+  }
+  .skill-card.has-photo:hover img{
+    transform: scale(1.06);
+  }
+  .skill-card.has-photo .txt{
+    padding: 20px 22px;
+  }
+  .skill-card.alt{
+    background: var(--gold);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .skill-card.alt img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    transition: transform 0.5s ease;
+  }
+  .skill-card.alt:hover img{
+    transform: scale(1.06);
+  }
+  .skill-card.alt .txt{
+    padding: 20px 22px;
+  }
+  .skill-card.alt h3{
+    color: var(--ink);
+  }
+  .skill-card.alt p{
+    color: var(--ink);
+  }
+  .skill-card.alt2{
+    background: var(--clay);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .skill-card.alt2 img{
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    background: #0b0b0b;
+    transition: transform 0.5s ease;
+  }
+  .skill-card.alt2:hover img{
+    transform: scale(1.04);
+  }
+  .skill-card.alt2 .txt{
+    padding: 20px 22px;
+  }
+  .skill-card.alt3{
+    background: var(--sage);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .skill-card.alt3 img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    transition: transform 0.5s ease;
+  }
+  .skill-card.alt3:hover img{
+    transform: scale(1.06);
+  }
+  .skill-card.alt3 .txt{
+    padding: 20px 22px;
+  }
+  .quote-block{
+    display: grid;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (min-width: 760px){
+    .quote-block{
+      grid-template-columns: 220px 1fr;
+    }
+  }
+  .quote-block img{
+    border-radius: 16px;
+    height: 260px;
+    object-position: center 20%;
+  }
+  @media (max-width: 759px){
+    .quote-block img{
+      width: 92%;
+      margin: 0 auto;
+    }
+  }
+  .quote-block blockquote{
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: var(--forest);
+  }
+  .quote-block p.attr{
+    margin-top: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--clay);
+  }
+  .dream-grid{
+    display: grid;
+    gap: 28px;
+  }
+  @media (min-width: 760px){
+    .dream-grid{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .dream-text p{
+    margin-bottom: 14px;
+  }
+  footer{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 0 40px;
+  }
+  footer h2{
+    color: var(--paper);
+  }
+  .contact-grid{
+    display: grid;
+    gap: 18px;
+    margin-top: 28px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 680px){
+    .contact-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .contact-item{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(247, 243, 232, 0.06);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--paper);
+  }
+  .contact-item:hover{
+    background: rgba(247, 243, 232, 0.12);
+  }
+  .icon{
+    width: 26px;
+    height: 26px;
+    flex: none;
+  }
+  .contact-item span{
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+  footer .fine{
+    margin-top: 44px;
+    font-size: 0.82rem;
+    opacity: 0.6;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Jolina M. Facullo</div>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#place">Comfort Place</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#food">Comfort Food</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#dream">Dream</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="eyebrow">Future elementary school teacher in Salcedo, San Manuel, Tarlac</div>
+      <h1>Jolina Martin<br>Facullo</h1>
+      <p class="loc">Living quietly, learning to teach gently.</p>
+      <p class="lede">I live in the peaceful barangay of Salcedo, San Manuel, Tarlac. I'm a 3rd year Bachelor of Early Childhood Education student at the University of Eastern Pangasinan. I value kindness, family, and simple joys — and I believe every person has a purpose. I'm grateful for where my journey has taken me so far.</p>
+      <a class="hero-cta" href="#place">See my story</a>
+    </div>
+    <div class="hero-photo"><div class="hero-photo-frame"><img src="jolina-portrait.jpg" alt="Jolina Martin Facullo"></div></div>
+  </div>
+</header>
+
+<section id="place">
+  <div class="wrap">
+    <div class="split reverse reveal">
+      <div class="media tall"><img src="nature-river.jpg" alt="A quiet river surrounded by trees"></div>
+      <div>
+        <div class="kicker">My Comfort Place</div>
+        <h2>Nature</h2>
+        <p>Being surrounded by trees, open fields, and fresh air instantly calms my mind and refreshes my heart. Whenever I feel tired or overwhelmed, spending time outdoors helps me reset and reminds me that there is peace and beauty all around us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="people">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">My Favorite People</div>
+      <h2>The ones who keep me going</h2>
+    </div>
+    <div class="people-grid reveal">
+      <div class="person">
+        <img src="mother.jpg" alt="Jolina's mother" class="obj-mother">
+        <div class="cap"><h3>My Mother</h3><p>My greatest inspiration — her love, sacrifices, and strength keep me going every day.</p></div>
+      </div>
+      <div class="person">
+        <img src="boyfriend.jpg" alt="Jolina and her boyfriend">
+        <div class="cap"><h3>My Boyfriend</h3><p>Someone I treasure deeply; he supports me and makes life's journey much sweeter.</p></div>
+      </div>
+      <div class="person">
+        <img src="niece.jpg" alt="Jolina's pamangkin">
+        <div class="cap"><h3>My Pamangkin</h3><p>Brings so much light and laughter into my world.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="food">
+  <div class="wrap">
+    <div class="food-layout reveal">
+      <div class="carousel food-carousel">
+        <div class="carousel-track">
+          <img src="comfort-food.jpg" alt="Burger, fries, and milk tea">
+          <img src="comfort-food-2.jpg" alt="Cheesy noodles with nori">
+        </div>
+        <button class="car-btn car-prev" aria-label="Previous photo">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next photo">&#8250;</button>
+        <div class="car-dots"></div>
+      </div>
+      <div>
+        <div class="kicker">My Comfort Food</div>
+        <h2>Little happy bites</h2>
+        <ul class="food-list">
+          <li><span class="tag">Shawarma</span><span>That warm, satisfying feeling — tender meat and creamy sauce.</span></li>
+          <li><span class="tag">Burger</span><span>Always a simple, delicious joy.</span></li>
+          <li><span class="tag">Takoyaki</span><span>Warm, crispy, and flavorful — my ultimate happy snack.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Skills &amp; Interests</div>
+      <h2>What I bring, what I love</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card has-photo">
+        <img src="planning.jpg" alt="Jolina helping organize a school food fair">
+        <div class="txt">
+          <h3>Planning &amp; Patience</h3>
+          <p>Good at organizing and staying patient with others. I work well in teams and try my best in everything I do.</p>
+        </div>
+      </div>
+      <div class="skill-card alt">
+        <img src="children-learning.jpg" alt="Jolina praying with her students before a snack">
+        <div class="txt">
+          <h3>Children &amp; Learning</h3>
+          <p>I love spending time with children, learning new things, and exploring nature.</p>
+        </div>
+      </div>
+      <div class="skill-card alt2">
+        <img src="mobile-legends.jpg" alt="Mobile Legends: Bang Bang">
+        <div class="txt">
+          <h3>Unwinding</h3>
+          <p>When I need to relax, a round of Mobile Legends does the trick.</p>
+        </div>
+      </div>
+      <div class="skill-card alt3">
+        <img src="drawing.jpg" alt="A sketch drawing">
+        <div class="txt">
+          <h3>Drawing</h3>
+          <p>A quiet creative outlet I return to whenever I want to slow down and make something with my hands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inspiration">
+  <div class="wrap">
+    <div class="quote-block reveal">
+      <img src="mother.jpg" alt="Jolina's mother">
+      <div>
+        <div class="kicker">My Inspiration</div>
+        <blockquote>"Everything I do, every challenge I face, is for her and for the future we will share."</blockquote>
+        <p class="attr">My family, especially my mom, is my biggest motivation. I want to make her proud and give back all the love and sacrifices she has given me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dream">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">My Dream</div>
+      <h2>From nurse to future teacher</h2>
+    </div>
+    <div class="dream-grid reveal">
+      <div class="carousel dream-carousel">
+        <div class="carousel-track">
+          <img src="classroom-group.jpg" alt="Jolina with her fellow teachers and students">
+          <img src="classroom.jpg" alt="Jolina helping a student">
+        </div>
+        <button class="car-btn car-prev" aria-label="Previous photo">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next photo">&#8250;</button>
+        <div class="car-dots"></div>
+      </div>
+      <div class="dream-text">
+        <p>My first choice was becoming a Nurse. I've always wanted to help and care for others — that was my original dream. But life led me down a different path, and I'm now studying to become a Teacher.</p>
+        <p>I realized teaching is also a beautiful way to serve. Instead of caring for bodies, I'll get to care for hearts and minds. I may not be wearing a nurse's uniform, but I still get to nurture, guide, and make a difference — one lesson at a time.</p>
+        <p>Now I embrace this journey wholeheartedly — being a teacher isn't just what I'm working toward, it's what I'm meant to do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--gold)">Find Me</div>
+    <h2>Let's connect</h2>
+    <div class="contact-grid">
+      <a class="contact-item" href="https://www.facebook.com/share/1LREKT5UUC/?mibextid=wwXIfr" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="#f7f3e8"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.91h-2.33V22c4.78-.78 8.44-4.94 8.44-9.94z"/></svg>
+        <span>facebook.com/share/1LREKT5UUC</span>
+      </a>
+      <a class="contact-item" href="https://www.instagram.com/jolsmartin?stkn=ZHRub2d6eGdvNHJo&utm_source=qr" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f7f3e8" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="#f7f3e8" stroke="none"/></svg>
+        <span>@jolsmartin</span>
+      </a>
+      <a class="contact-item" href="https://www.tiktok.com/@_j0lzs?_r=1&_t=ZS-9A5AePEVDL2" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="#f7f3e8"><path d="M16.5 2h-3v13.8a2.9 2.9 0 1 1-2-2.75V9.9a6.1 6.1 0 1 0 5 6V9.2a7.6 7.6 0 0 0 4.5 1.5V7.4a4.6 4.6 0 0 1-4.5-5.4z"/></svg>
+        <span>@_j0lzs</span>
+      </a>
+      <a class="contact-item" href="mailto:jolinafacullo83@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f7f3e8" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6l9 7 9-7"/></svg>
+        <span>jolinafacullo83@gmail.com</span>
+      </a>
+      <a class="contact-item" href="tel:09929139560">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#f7f3e8" stroke-width="1.6"><path d="M4.5 3.5h3.4l1.4 4-2 1.6a13 13 0 0 0 6.6 6.6l1.6-2 4 1.4v3.4c0 1-.9 1.8-1.9 1.6C10.6 18.9 5.1 13.4 3.9 6.4 3.7 5.4 4.5 3.5 4.5 3.5z"/></svg>
+        <span>0992 913 9560</span>
+      </a>
+    </div>
+    <p class="fine">Jolina Martin Facullo — Salcedo, San Manuel, Tarlac</p>
+  </div>
+</footer>
+
+<div id="lightbox">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
+<div id="img-hint">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+  View
+</div>
+
+<script>
+  var navToggle = document.getElementById('navToggle');
+  var navlinks = document.getElementById('navlinks');
+  navToggle.addEventListener('click', function(){
+    var open = navlinks.classList.toggle('mobile-open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navlinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navlinks.classList.remove('mobile-open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  document.querySelectorAll('.carousel').forEach(function(car){
+    var track = car.querySelector('.carousel-track');
+    var slides = track.querySelectorAll('img');
+    var dotsWrap = car.querySelector('.car-dots');
+    var i = 0;
+    slides.forEach(function(_, idx){
+      var d = document.createElement('button');
+      if(idx===0) d.className='active';
+      d.addEventListener('click', function(){ go(idx); });
+      dotsWrap.appendChild(d);
+    });
+    function go(idx){
+      i = (idx + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (i*100) + '%)';
+      dotsWrap.querySelectorAll('button').forEach(function(d,di){ d.classList.toggle('active', di===i); });
+    }
+    car.querySelector('.car-prev').addEventListener('click', function(){ go(i-1); });
+    car.querySelector('.car-next').addEventListener('click', function(){ go(i+1); });
+  });
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  var clickableImgs = document.querySelectorAll('section img, .hero-photo img');
+  clickableImgs.forEach(function(img){
+    img.addEventListener('click', function(){
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); }
+  lb.addEventListener('click', function(e){ if(e.target===lb) closeLb(); });
+  lb.querySelector('.lb-close').addEventListener('click', closeLb);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+
+  var hint = document.getElementById('img-hint');
+  if(matchMedia('(hover:hover)').matches){
+    clickableImgs.forEach(function(img){
+      img.addEventListener('mouseenter', function(){ hint.classList.add('show'); });
+      img.addEventListener('mousemove', function(e){
+        hint.style.left = e.clientX + 'px';
+        hint.style.top = e.clientY + 'px';
+      });
+      img.addEventListener('mouseleave', function(){ hint.classList.remove('show'); });
+    });
+  }
+</script>
+</body>
+</html>
